@@ -379,6 +379,13 @@ table {
   border-spacing: 0;
 }
 /*!
+ *  variables.less
+ *
+ *  copyright 2012 frapwings, kazuya kawaguchi (@kazu_pon)
+ *  licensed under MIT license
+ *  http://www.opensource.org/licenses/mit-license.php
+ */
+/*!
  *  mixins.less
  *
  *  copyright 2012 frapwings, kazuya kawaguchi (@kazu_pon)
@@ -415,5 +422,18 @@ table {
   zoom: 1;
 }
 .container-fixed:after {
+  clear: both;
+}
+.container-flexible {
+  padding-left: 60px;
+  padding-right: 60px;
+  zoom: 1;
+}
+.container-flexible:before, .container-flexible:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.container-flexible:after {
   clear: both;
 }
