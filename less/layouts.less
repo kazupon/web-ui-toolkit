@@ -6,19 +6,23 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
+// container
 .container {
   .clearfix();
 }
 
+// fixed container
 .container-fixed {
   #mixins > .container-fixed(@siteWidth);
 }
 
+// flexible container
 .container-flexible {
   padding-left: @gridSpaceWidth;
   padding-right: @gridSpaceWidth;
   .clearfix();
 }
 
+// grid system
 #grid-system > .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth, @gridRowWidth);
 
