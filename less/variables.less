@@ -9,5 +9,8 @@
 // layouts
 
 @siteWidth: 960px;
-@gridSpaceWidth: 60px;
+@gridColumns: 12;
+@gridColumnWidth: 60px;
+@gridSpaceWidth: 20px;
+@gridRowWidth: (@gridColumns * @gridColumnWidth) + (@gridSpaceWidth * (@gridColumns - 1));
 
