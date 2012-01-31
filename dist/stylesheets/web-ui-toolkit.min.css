@@ -46,3 +46,5 @@ ol,ul{list-style:none;}
 q:before,q:after,blockquote:before,blockquote:after{content:"";}
 .container{zoom:1;}.container:before,.container:after{display:table;content:"";zoom:1;}
 .container:after{clear:both;}
+.container-fixed{width:960px;margin-left:auto;margin-right:auto;zoom:1;}.container-fixed:before,.container-fixed:after{display:table;content:"";zoom:1;}
+.container-fixed:after{clear:both;}
