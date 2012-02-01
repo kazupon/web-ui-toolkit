@@ -89,6 +89,64 @@
   }
 }
 
+#flexible-grid-system {
+  .columns (@flexibleGridSpaceWidth, @flexibleGridColumnWidth, @columns) {
+    width: 1% * (@flexibleGridColumnWidth * @columns) + (@flexibleGridSpaceWidth * (@columns - 1));
+  }
+  .gridColumn (@flexibleGridSpaceWidth) {
+    float: left;
+    margin-left: @flexibleGridSpaceWidth;
+  }
+  .generate (@gridColumns, @flexibleGridColumnWidth, @flexibleGridSpaceWidth) {
+    .flexible-row {
+      width: 100%;
+      .clearfix();
+      > [class*="column"] {
+        #flexible-grid-system > .gridColumn(@flexibleGridSpaceWidth);
+      }
+      > [class*="column"]:first-child {
+        margin-left: 0;
+      }
+      .column1 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 1);
+      }
+      .column2 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 2);
+      }
+      .column3 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 3);
+      }
+      .column4 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 4);
+      }
+      .column5 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 5);
+      }
+      .column6 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 6);
+      }
+      .column7 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 7);
+      }
+      .column8 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 8);
+      }
+      .column9 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 9);
+      }
+      .column10 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 10);
+      }
+      .column11 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 11);
+      }
+      .column12 {
+        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 12);
+      }
+    }
+  }
+}
+
 .border-radius (@radius: 5px) {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;

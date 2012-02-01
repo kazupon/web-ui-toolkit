@@ -18,6 +18,7 @@ test:
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/container-fixed/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/container-fixed/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/container-flexible/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/container-flexible/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/grid-system/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/grid-system/style.css
+	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-grid-system/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-grid-system/style.css
 
 clean:
 	rm -rf dist/images
