@@ -1,4 +1,5 @@
 WEB_UI_TOOLKIT_LESS = ./less/web-ui-toolkit.less
+WEB_UI_TOOLKIT_RESPONSIV_LESS = ./less/responsive.less
 WEB_UI_TOOLKIT_TESTS_DIR = ./tests
 LESSC = lessc
 
@@ -8,6 +9,8 @@ build: clean
 	mkdir -p dist/javascripts
 	${LESSC} ${WEB_UI_TOOLKIT_LESS} > dist/stylesheets/web-ui-toolkit.css
 	${LESSC} --compress ${WEB_UI_TOOLKIT_LESS} > dist/stylesheets/web-ui-toolkit.min.css
+	${LESSC} ${WEB_UI_TOOLKIT_RESPONSIV_LESS} > dist/stylesheets/web-ui-toolkit-responsive.css
+	${LESSC} --compress ${WEB_UI_TOOLKIT_RESPONSIV_LESS} > dist/stylesheets/web-ui-toolkit-responsive.min.css
 
 test:
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/clearfix/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/clearfix/style.css
