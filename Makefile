@@ -15,8 +15,8 @@ test:
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/border-radius/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/border-radius/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/box-shadow/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/box-shadow/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/container/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/container/style.css
-	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/container-fixed/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/container-fixed/style.css
-	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/container-flexible/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/container-flexible/style.css
+	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/fixed-container/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/fixed-container/style.css
+	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-container/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-container/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/grid-system/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/grid-system/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-grid-system/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-grid-system/style.css
 
