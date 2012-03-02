@@ -12,7 +12,7 @@ build: clean
 	${LESSC} ${WEB_UI_TOOLKIT_RESPONSIV_LESS} > dist/stylesheets/web-ui-toolkit-responsive.css
 	${LESSC} --compress ${WEB_UI_TOOLKIT_RESPONSIV_LESS} > dist/stylesheets/web-ui-toolkit-responsive.min.css
 
-test:
+test: build
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/clearfix/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/clearfix/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/center-block/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/center-block/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/border-radius/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/border-radius/style.css
