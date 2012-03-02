@@ -1,4 +1,4 @@
-/*! normalize.css 2012-01-22T23:30 UTC - http://github.com/necolas/normalize.css */
+/*! normalize.css 2012-02-07T12:37 UTC - http://github.com/necolas/normalize.css */
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -14,13 +14,16 @@ footer,
 header,
 hgroup,
 nav,
-section {
+section,
+summary {
   display: block;
 }
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
  */
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -58,7 +61,7 @@ html {
   /* 2 */
 
 }
-/* 
+/*
  * Addresses font-family inconsistency between 'textarea' and other form elements.
  */
 html,
@@ -87,17 +90,40 @@ a:focus {
  * Improves readability when focused and also mouse hovered in all browsers
  * people.opera.com/patrickl/experiments/keyboard/test
  */
-a:hover, a:active {
+a:hover,
+a:active {
   outline: 0;
 }
 /* =============================================================================
    Typography
    ========================================================================== */
 /*
- * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
+ * Addresses font sizes and margins set differently in IE6/7
+ * Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
  */
 h1 {
   font-size: 2em;
+  margin: 0.67em 0;
+}
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
 }
 /*
  * Addresses styling not present in IE7/8/9, S5, Chrome
@@ -108,7 +134,8 @@ abbr[title] {
 /*
  * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
 */
-b, strong {
+b,
+strong {
   font-weight: bold;
 }
 blockquote {
@@ -126,6 +153,13 @@ dfn {
 mark {
   background: #ff0;
   color: #000;
+}
+/*
+ * Addresses margins set differently in IE6/7
+ */
+p,
+pre {
+  margin: 1em 0;
 }
 /*
  * Corrects font family set oddly in IE6, S4/5, Chrome
@@ -156,7 +190,8 @@ q {
   quotes: none;
 }
 /* 2 */
-q:before, q:after {
+q:before,
+q:after {
   content: '';
   content: none;
 }
@@ -167,7 +202,8 @@ small {
  * Prevents sub and sup affecting line-height in all browsers
  * gist.github.com/413930
  */
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -182,14 +218,31 @@ sub {
 /* =============================================================================
    Lists
    ========================================================================== */
-ul, ol {
-  margin-left: 0;
-  padding: 0 0 0 40px;
+/*
+ * Addresses margins set differently in IE6/7
+ */
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0;
 }
 dd {
   margin: 0 0 0 40px;
 }
-nav ul, nav ol {
+/*
+ * Addresses paddings set differently in IE6/7
+ */
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px;
+}
+/*
+ * Corrects list images handled incorrectly in IE7
+ */
+nav ul,
+nav ol {
   list-style: none;
   list-style-image: none;
 }
@@ -210,7 +263,7 @@ img {
 
 }
 /*
- * Corrects overflow displayed oddly in IE9 
+ * Corrects overflow displayed oddly in IE9
  */
 svg:not(:root) {
   overflow: hidden;
@@ -283,7 +336,8 @@ textarea {
 /*
  * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
  */
-button, input {
+button,
+input {
   line-height: normal;
   /* 1 */
 
@@ -309,12 +363,20 @@ input[type="submit"] {
 
 }
 /*
+ * Re-set default cursor for disabled elements
+ */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+/*
  * 1. Addresses box sizing set to content-box in IE8/9
  * 2. Removes excess padding in IE8/9
  * 3. Removes excess padding in IE7
       Known issue: excess padding remains in IE6
  */
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
 
@@ -345,14 +407,16 @@ input[type="search"] {
 /*
  * Removes inner padding and search cancel button in S5, Chrome on OS X
  */
-input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 /*
  * Removes inner padding and border in FF3+
  * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
  */
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -371,7 +435,7 @@ textarea {
 /* =============================================================================
    Tables
    ========================================================================== */
-/* 
+/*
  * Remove most spacing between table cells
  */
 table {
@@ -400,10 +464,19 @@ table {
  *  http://www.opensource.org/licenses/mit-license.php
  */
 .container {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+  zoom: 1;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
   zoom: 1;
   zoom: 1;
 }
-.container:before, .container:after {
+.container:before,
+.container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -411,7 +484,26 @@ table {
 .container:after {
   clear: both;
 }
-.container:before, .container:after {
+.container:before,
+.container:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.container:after {
+  clear: both;
+}
+.container:before,
+.container:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.container:after {
+  clear: both;
+}
+.container:before,
+.container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -431,7 +523,8 @@ table {
   zoom: 1;
   zoom: 1;
 }
-.fixed-container:before, .fixed-container:after {
+.fixed-container:before,
+.fixed-container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -439,7 +532,8 @@ table {
 .fixed-container:after {
   clear: both;
 }
-.fixed-container:before, .fixed-container:after {
+.fixed-container:before,
+.fixed-container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -447,7 +541,8 @@ table {
 .fixed-container:after {
   clear: both;
 }
-.fixed-container:before, .fixed-container:after {
+.fixed-container:before,
+.fixed-container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -455,7 +550,8 @@ table {
 .fixed-container:after {
   clear: both;
 }
-.fixed-container:before, .fixed-container:after {
+.fixed-container:before,
+.fixed-container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -469,7 +565,8 @@ table {
   zoom: 1;
   zoom: 1;
 }
-.flexible-container:before, .flexible-container:after {
+.flexible-container:before,
+.flexible-container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -477,7 +574,8 @@ table {
 .flexible-container:after {
   clear: both;
 }
-.flexible-container:before, .flexible-container:after {
+.flexible-container:before,
+.flexible-container:after {
   display: table;
   content: "";
   zoom: 1;
@@ -490,7 +588,8 @@ table {
   zoom: 1;
   zoom: 1;
 }
-.row:before, .row:after {
+.row:before,
+.row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -498,7 +597,8 @@ table {
 .row:after {
   clear: both;
 }
-.row:before, .row:after {
+.row:before,
+.row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -556,7 +656,8 @@ table {
   width: 860px;
   width: 860px;
 }
-.column12, .container {
+.column12,
+.container {
   width: 940px;
   width: 940px;
 }
@@ -565,7 +666,8 @@ table {
   zoom: 1;
   zoom: 1;
 }
-.row:before, .row:after {
+.row:before,
+.row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -573,7 +675,8 @@ table {
 .row:after {
   clear: both;
 }
-.row:before, .row:after {
+.row:before,
+.row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -631,7 +734,8 @@ table {
   width: 860px;
   width: 860px;
 }
-.column12, .container {
+.column12,
+.container {
   width: 940px;
   width: 940px;
 }
@@ -640,7 +744,8 @@ table {
   zoom: 1;
   zoom: 1;
 }
-.flexible-row:before, .flexible-row:after {
+.flexible-row:before,
+.flexible-row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -648,7 +753,8 @@ table {
 .flexible-row:after {
   clear: both;
 }
-.flexible-row:before, .flexible-row:after {
+.flexible-row:before,
+.flexible-row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -718,7 +824,8 @@ table {
   zoom: 1;
   zoom: 1;
 }
-.flexible-row:before, .flexible-row:after {
+.flexible-row:before,
+.flexible-row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -726,7 +833,8 @@ table {
 .flexible-row:after {
   clear: both;
 }
-.flexible-row:before, .flexible-row:after {
+.flexible-row:before,
+.flexible-row:after {
   display: table;
   content: "";
   zoom: 1;
@@ -826,20 +934,22 @@ table {
   .row {
     margin-left: 0;
   }
-  .row > [class*="column"], .flexible-row > [class*="column"] {
+  .row > [class*="column"],
+  .flexible-row > [class*="column"] {
     float: none;
     display: block;
     width: auto;
     margin: 0;
   }
 }
-@media (min-width: 768px) and (max-width: 980px) {
+@media (min-width: 768px) and (max-width: 979px) {
   .row {
     margin-left: -20px;
     zoom: 1;
     zoom: 1;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -847,7 +957,8 @@ table {
   .row:after {
     clear: both;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -905,7 +1016,8 @@ table {
     width: 662px;
     width: 662px;
   }
-  .column12, .container {
+  .column12,
+  .container {
     width: 724px;
     width: 724px;
   }
@@ -914,7 +1026,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -922,7 +1035,8 @@ table {
   .row:after {
     clear: both;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -980,7 +1094,8 @@ table {
     width: 662px;
     width: 662px;
   }
-  .column12, .container {
+  .column12,
+  .container {
     width: 724px;
     width: 724px;
   }
@@ -989,7 +1104,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -997,7 +1113,8 @@ table {
   .flexible-row:after {
     clear: both;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1067,7 +1184,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1075,7 +1193,8 @@ table {
   .flexible-row:after {
     clear: both;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1141,8 +1260,14 @@ table {
     width: 99.999999993%;
   }
 }
-@media (max-width: 980px) {
-  
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+  .container {
+    width: auto;
+    padding: 0;
+  }
 }
 @media (min-width: 980px) {
   
@@ -1153,7 +1278,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1161,7 +1287,8 @@ table {
   .row:after {
     clear: both;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1219,7 +1346,8 @@ table {
     width: 1070px;
     width: 1070px;
   }
-  .column12, .container {
+  .column12,
+  .container {
     width: 1170px;
     width: 1170px;
   }
@@ -1228,7 +1356,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1236,7 +1365,8 @@ table {
   .row:after {
     clear: both;
   }
-  .row:before, .row:after {
+  .row:before,
+  .row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1294,7 +1424,8 @@ table {
     width: 1070px;
     width: 1070px;
   }
-  .column12, .container {
+  .column12,
+  .container {
     width: 1170px;
     width: 1170px;
   }
@@ -1303,7 +1434,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1311,7 +1443,8 @@ table {
   .flexible-row:after {
     clear: both;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1381,7 +1514,8 @@ table {
     zoom: 1;
     zoom: 1;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;
@@ -1389,7 +1523,8 @@ table {
   .flexible-row:after {
     clear: both;
   }
-  .flexible-row:before, .flexible-row:after {
+  .flexible-row:before,
+  .flexible-row:after {
     display: table;
     content: "";
     zoom: 1;

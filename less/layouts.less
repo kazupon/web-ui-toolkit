@@ -8,7 +8,8 @@
 
 // container
 .container {
-  .clearfix();
+  //.clearfix();
+  #mixins > .fixed-container(@siteWidth);
 }
 
 // fixed container
@@ -24,7 +25,7 @@
 }
 
 // grid system
-#grid-system > .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth, @gridRowWidth);
+#grid-system > .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth);
 
 // flexible grid system
 #flexible-grid-system > .generate(@gridColumns, @flexibleGridColumnWidth, @flexibleGridSpaceWidth);

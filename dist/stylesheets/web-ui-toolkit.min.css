@@ -47,7 +47,7 @@ input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-se
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 textarea{overflow:auto;vertical-align:top;}
 table{border-collapse:collapse;border-spacing:0;}
-.container{zoom:1;}.container:before,.container:after{display:table;content:"";zoom:1;}
+.container{width:960px;margin-left:auto;margin-right:auto;zoom:1;}.container:before,.container:after{display:table;content:"";zoom:1;}
 .container:after{clear:both;}
 .fixed-container{width:960px;margin-left:auto;margin-right:auto;zoom:1;}.fixed-container:before,.fixed-container:after{display:table;content:"";zoom:1;}
 .fixed-container:after{clear:both;}
