@@ -1,0 +1,8 @@
+# web-ui-toolkit
+
+HTML, CSS, and Javascript toolkit.
+
+# License
+
+[MIT license](http://www.opensource.org/licenses/mit-license.php).
+

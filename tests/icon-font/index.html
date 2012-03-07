@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>icon test (web font)</title>
+    <meta charset="utf-8" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <label for="icon-size">Size</label>
+      <select name="icon-size" id="icon-size">
+      </select>
+      <label for="icon-color">Color</label>
+      <select name="icon-color" id="icon-color">
+      </select>
+    </div>
+    <div class="container">
+      <h1>Basic</h1>
+    </div>
+    <div id="icon-basic" class="container">
+      <!--
+      <span class="icon-font logo" data-icon="#"></span>
+      -->
+    </div>
+    <div class="container">
+      <h1>Logo</h1>
+    </div>
+    <div id="icon-logo" class="container">
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var $icon_size = $('#icon-size');
+        var $icon_color = $('#icon-color');
+        var $icon_basic = $('#icon-basic');
+        var $icon_logo = $('#icon-logo');
+
+        var size_options = ['huge', 'large', 'medium', 'small', 'tiny', 'default'];
+        var color_options = ['gray', 'red', 'blue', 'green', 'black', 'default'];
+
+        var initializeCombobox = function ($target, options, default_select) {
+          $.each(options, function (index, option) {
+            $('<option>').val(option).text(option).appendTo($target);
+          });
+          $target.val(default_select);
+        };
+        initializeCombobox($icon_size, size_options, 'default');
+        initializeCombobox($icon_color, color_options, 'default');
+
+        var escape_code = function (str) {
+          str = str.replace("&#x22;", '"');
+          str = str.replace("&#x27;", "'");
+          return str;
+        };
+        var icon_basic = ['!', '&#x22;', '#', '$', '%', '&', '&#x27;', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A'];
+        var icon_logo = ['!', '&#x22;', '#', '$', '%', '&', '&#x27;', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S'];
+
+        var initializeIcon = function ($target, icons, is_logo) {
+          var is_logo = is_logo || false;
+          $.each(icons, function (index, icon) {
+            var $inner = $('<span></span>').attr('data-icon', icon).text(escape_code(icon));
+            var $icon = $('<span></span>').addClass('icon-font');
+            if (is_logo) {
+              $icon.addClass('logo');
+            }
+            $inner.appendTo($icon);
+            $target.append($icon);
+          });
+        };
+        initializeIcon($icon_basic, icon_basic);
+        initializeIcon($icon_logo, icon_logo, true);
+
+        $icon_size.change(function () {
+          var size_value = $(this).val();
+          $.each([$icon_basic, $icon_logo], function (index, $kind) {
+            $.each($kind.children(), function (index, icon) {
+              $(icon).removeClass(size_options.join(' '));
+              if (size_value !== 'default') {
+                $(icon).addClass(size_value);
+              }
+            });
+          });
+        });
+        $icon_color.change(function () {
+          var color_value = $(this).val();
+          $.each([$icon_basic, $icon_logo], function (index, $kind) {
+            $.each($kind.children(), function (index, icon) {
+              $(icon).removeClass(color_options.join(' '));
+              if (color_value !== 'default') {
+                $(icon).addClass(color_value);
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

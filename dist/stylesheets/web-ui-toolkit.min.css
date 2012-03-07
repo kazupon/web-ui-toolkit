@@ -84,3 +84,16 @@ table{border-collapse:collapse;border-spacing:0;}
 .flexible-row .column10{width:82.97872339599999%;}
 .flexible-row .column11{width:91.489361693%;}
 .flexible-row .column12{width:99.99999998999999%;}
+@font-face{font-family:'Icon-Basic';src:url('fonts/icon-basic.eot');src:url('fonts/icon-basic.eot?#iefix') format('embedded-opentype'),url('fonts/icon-basic.woff') format('woff'),url('fonts/icon-basic.ttf') format('truetype'),url('fonts/icon-basic.svg#icon-basic') format('svg');}@font-face{font-family:'Icon-Logo';src:url('fonts/icon-logo.eot');src:url('fonts/icon-logo.eot?#iefix') format('embedded-opentype'),url('fonts/icon-logo.woff') format('woff'),url('fonts/icon-logo.ttf') format('truetype'),url('fonts/icon-logo.svg#icon-logo') format('svg');}.icon-font{display:inline-block;height:0.8em;width:0.8em;font-size:24px;font-family:'Icon-Basic',arial,sans-serif;color:inherit;text-decoration:none;vertical-align:middle;text-align:center;line-height:120%;padding:0;margin:0;position:relative;top:-3px;left:0;-webkit-font-smoothing:antialiased;zoom:1;}.icon-font span{position:relative;top:-49%;left:0.017em;color:inherit;display:inline-block;zoom:1;}
+.icon-font.logo{font-family:'Icon-Logo',arial,sans-serif;}.icon-font.logo span{top:-23%;}
+.icon-font.tiny{font-size:24px;}
+.icon-font.small{font-size:32px;}
+.icon-font.medium{font-size:48px;}
+.icon-font.large{font-size:64px;}
+.icon-font.huge{font-size:96px;}
+.icon-font.gray{color:#999;}
+.icon-font.black{color:#000;}
+.icon-font.white{color:#fff;}
+.icon-font.red{color:#ff0000;}
+.icon-font.blue{color:#0000FF;}
+.icon-font.green{color:#00FF00;}

@@ -1,0 +1,105 @@
+/*!
+ *  icons.less
+ *
+ *  copyright 2012 frapwings, kazuya kawaguchi (@kazu_pon)
+ *  licensed under MIT license
+ *  http://www.opensource.org/licenses/mit-license.php
+ */
+
+@font-face { 
+  font-family: 'Icon-Basic';
+  src: url('@{icon-font-basic-path}.eot');
+  src: url('@{icon-font-basic-path}.eot?#iefix') format('embedded-opentype'),
+       url('@{icon-font-basic-path}.woff') format('woff'),
+       url('@{icon-font-basic-path}.ttf') format('truetype'),
+       url('@{icon-font-basic-path}.svg#icon-basic') format('svg');
+}
+
+@font-face { 
+  font-family: 'Icon-Logo';
+  src: url('@{icon-font-logo-path}.eot');
+  src: url('@{icon-font-logo-path}.eot?#iefix') format('embedded-opentype'),
+       url('@{icon-font-logo-path}.woff') format('woff'),
+       url('@{icon-font-logo-path}.ttf') format('truetype'),
+       url('@{icon-font-logo-path}.svg#icon-logo') format('svg');
+}
+
+.icon-font {
+  display: inline-block;
+  height: 0.8em;
+  width: 0.8em;
+  font-size: 24px;
+  font-family: 'Icon-Basic', arial, sans-serif;
+  color: inherit;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 120%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: -3px;
+  left: 0;
+  -webkit-font-smoothing: antialiased;
+  zoom: 1;
+  /*
+  display:none;
+   */
+  
+  span {
+    position: relative;
+    top: -49%;
+    left: 0.017em;
+    color: inherit;
+    display: inline-block;
+    zoom: 1;
+  }
+}
+
+.icon-font.logo {
+  font-family: 'Icon-Logo', arial, sans-serif;
+  span {
+    top: -23%;
+  }
+}
+.icon-font.tiny {
+  font-size: 24px;
+}
+.icon-font.small {
+  font-size: 32px;
+}
+.icon-font.medium {
+  font-size: 48px;
+}
+.icon-font.large {
+  font-size: 64px;
+}
+.icon-font.huge {
+  font-size: 96px;
+}
+
+.icon-font.gray {
+  color: #999;
+}
+
+.icon-font.black {
+  color: #000;
+}
+
+.icon-font.white {
+  color: #fff;
+}
+
+.icon-font.red {
+  color: #ff0000;
+}
+
+.icon-font.blue {
+  color: #0000FF;
+}
+
+.icon-font.green {
+  color: #00FF00;
+}
+
+
