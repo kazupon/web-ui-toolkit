@@ -20,7 +20,46 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 @media (max-width: 480px) {
-  
+  .page-header h1 small {
+    display: block;
+    line-height: 18px;
+  }
+  input[class*="column"],
+  select[class*="column"],
+  textarea[class*="column"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .input-prepend input[class*="column"],
+  .input-append input[class*="column"] {
+    width: auto;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+  .form-horizontal .control-group > label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+  .form-horizontal .control-list {
+    padding-top: 0;
+  }
+  .form-horizontal .form-actions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -151,6 +190,66 @@
   }
   .flexible-row .column12 {
     width: 99.999999993%;
+  }
+  input.column1,
+  textarea.column1,
+  .uneditable-input.column1 {
+    width: 32px;
+  }
+  input.column2,
+  textarea.column2,
+  .uneditable-input.column2 {
+    width: 94px;
+  }
+  input.column3,
+  textarea.column3,
+  .uneditable-input.column3 {
+    width: 156px;
+  }
+  input.column4,
+  textarea.column4,
+  .uneditable-input.column4 {
+    width: 218px;
+  }
+  input.column5,
+  textarea.column5,
+  .uneditable-input.column5 {
+    width: 280px;
+  }
+  input.column6,
+  textarea.column6,
+  .uneditable-input.column6 {
+    width: 342px;
+  }
+  input.column7,
+  textarea.column7,
+  .uneditable-input.column7 {
+    width: 404px;
+  }
+  input.column8,
+  textarea.column8,
+  .uneditable-input.column8 {
+    width: 466px;
+  }
+  input.column9,
+  textarea.column9,
+  .uneditable-input.column9 {
+    width: 528px;
+  }
+  input.column10,
+  textarea.column10,
+  .uneditable-input.column10 {
+    width: 590px;
+  }
+  input.column11,
+  textarea.column11,
+  .uneditable-input.column11 {
+    width: 652px;
+  }
+  input.column12,
+  textarea.column12,
+  .uneditable-input.column12 {
+    width: 714px;
   }
 }
 @media (max-width: 979px) {
@@ -380,5 +479,65 @@
   }
   .flexible-row .column12 {
     width: 100%;
+  }
+  input.column1,
+  textarea.column1,
+  .uneditable-input.column1 {
+    width: 60px;
+  }
+  input.column2,
+  textarea.column2,
+  .uneditable-input.column2 {
+    width: 160px;
+  }
+  input.column3,
+  textarea.column3,
+  .uneditable-input.column3 {
+    width: 260px;
+  }
+  input.column4,
+  textarea.column4,
+  .uneditable-input.column4 {
+    width: 360px;
+  }
+  input.column5,
+  textarea.column5,
+  .uneditable-input.column5 {
+    width: 460px;
+  }
+  input.column6,
+  textarea.column6,
+  .uneditable-input.column6 {
+    width: 560px;
+  }
+  input.column7,
+  textarea.column7,
+  .uneditable-input.column7 {
+    width: 660px;
+  }
+  input.column8,
+  textarea.column8,
+  .uneditable-input.column8 {
+    width: 760px;
+  }
+  input.column9,
+  textarea.column9,
+  .uneditable-input.column9 {
+    width: 860px;
+  }
+  input.column10,
+  textarea.column10,
+  .uneditable-input.column10 {
+    width: 960px;
+  }
+  input.column11,
+  textarea.column11,
+  .uneditable-input.column11 {
+    width: 1060px;
+  }
+  input.column12,
+  textarea.column12,
+  .uneditable-input.column12 {
+    width: 1160px;
   }
 }

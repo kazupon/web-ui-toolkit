@@ -25,6 +25,20 @@
   text-align: center;
 }
 
+.tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// IE7 inline-block
+.ie7-inline-block() {
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
 .placeholder(@color: @placeholderText) {
   :-moz-placeholder {
     color: @color;
@@ -184,6 +198,82 @@
         #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 12);
       }
     }
+  }
+}
+
+// Input grid system
+#input-grid-system {
+  .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, @columns) {
+    width: ((@gridColumnWidth) * @columns) + (@gridSpaceWidth * (@columns - 1)) - 10;
+  }
+  .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth) {
+    input,
+    textarea,
+    .uneditable-input {
+      &.column1 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 1);
+      }
+      &.column2 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 2);
+      }
+      &.column3 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 3);
+      }
+      &.column4 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 4);
+      }
+      &.column5 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 5);
+      }
+      &.column6 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 6);
+      }
+      &.column7 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 7);
+      }
+      &.column8 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 8);
+      }
+      &.column9 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 9);
+      }
+      &.column10 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 10);
+      }
+      &.column11 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 11);
+      }
+      &.column12 {
+        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 12);
+      }
+    }
+  }
+}
+
+.formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) {
+  // Set the text color
+  > label,
+  .help-block,
+  .help-inline {
+    color: @textColor;
+  }
+  // Style inputs accordingly
+  input,
+  select,
+  textarea {
+    color: @textColor;
+    border-color: @borderColor;
+    &:focus {
+      border-color: darken(@borderColor, 10%);
+      .box-shadow(0 0 6px lighten(@borderColor, 20%));
+    }
+  }
+  // Give a small background color for input-prepend/-append
+  .input-prepend .add-on,
+  .input-append .add-on {
+    color: @textColor;
+    background-color: @backgroundColor;
+    border-color: @textColor;
   }
 }
 

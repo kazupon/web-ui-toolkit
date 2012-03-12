@@ -15,6 +15,55 @@
   //.navigation-collapse {
   //  -webkit-transform: translate3d(0, 0, 0); // activate the GPU
   //}
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: @baseLineHeight;
+  }
+  // Make span* classes full width
+  input[class*="column"],
+  select[class*="column"],
+  textarea[class*="column"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px; // Make inputs at least the height of their button counterpart
+    // Makes inputs behave like true block-level elements
+    -webkit-box-sizing: border-box; // Older Webkit
+    -moz-box-sizing: border-box; // Older FF
+    -ms-box-sizing: border-box; // IE8
+    box-sizing: border-box; // CSS3 spec
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input[class*="column"],
+  .input-append input[class*="column"] {
+    width: auto;
+  }
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+  // Remove the horizontal form styles
+  .form-horizontal .control-group > label {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    text-align: left;
+  }
+  // Move over all input controls and content
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+  // Move the options list down to align with labels
+  .form-horizontal .control-list {
+    padding-top: 0; // has to be padding because margin collaspes
+  }
+  // Move over buttons in .form-actions to align with .controls
+  .form-horizontal .form-actions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 // landscape photo to small desktop & portrait tablet
@@ -42,6 +91,8 @@
 @media (min-width: 768px) and (max-width: 979px) {
   #grid-system > .generate(12, 42px, 20px);
   #flexible-grid-system > .generate(12, 5.801104972%, 2.762430939%);
+  #input-grid-system > .generate(12, 42px, 20px);
+
 }
 
 // tablets and below
@@ -173,4 +224,5 @@
 @media (min-width: 1200px) {
   #grid-system > .generate(12, 70px, 30px);
   #flexible-grid-system > .generate(12, 5.982905983%, 2.564102564%);
+  #input-grid-system > .generate(12, 70px, 30px);
 }
