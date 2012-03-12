@@ -23,6 +23,7 @@ test: build
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/grid-system/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/grid-system/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-grid-system/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/flexible-grid-system/style.css
 	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/icon-font/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/icon-font/style.css
+	${LESSC} ${WEB_UI_TOOLKIT_TESTS_DIR}/basic-html-elements/style.less > ${WEB_UI_TOOLKIT_TESTS_DIR}/basic-html-elements/style.css
 
 clean:
 	rm -rf dist/images

@@ -157,10 +157,115 @@
   body {
     padding-top: 0;
   }
-  .container {
-    width: auto;
-    padding: 0;
-  }
+  /*
+    // Unfix the navbar
+    .navigationbar-fixed-top {
+      position: static;
+      margin-bottom: @baseLineHeight;
+    }
+    .navigationbar-fixed-top .navigationbar-inner {
+      padding: 5px;
+    }
+    .navigationbar .container {
+      width: auto;
+      padding: 0;
+    }
+    // Account for product name
+    .navigationbar .product {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin: 0 0 0 -5px;
+    }
+    // navigation collapse clears product
+    .navigationbar .navigation-collapse {
+      clear: left;
+    }
+    // Block-level the navigation
+    .navigationbar .navigation {
+      float: none;
+      margin: 0 0 (@baseLineHeight / 2);
+    }
+    .navigationbar .navigation > li {
+      float: none;
+    }
+    .navigationbar .navigation > li > a {
+      margin-bottom: 2px;
+    }
+    .navigationbar .navigation > .divider-vertical {
+      display: none;
+    }
+    .navigationbar .navigation .navigation-header {
+      color: @navigationbarText;
+      text-shadow: none;
+    }
+    // navigation and dropdown links in navigationbar
+    .navigationbar .navigation > li > a,
+    .navigationbar .dropdown-menu a {
+      padding: 6px 15px;
+      font-weight: bold;
+      color: @navigationbarLinkColor;
+      .border-radius(3px);
+    }
+    .navigationbar .dropdown-menu li + li a {
+      margin-bottom: 2px;
+    }
+    .navigationbar .nav > li > a:hover,
+    .navigationbar .dropdown-menu a:hover {
+      background-color: @navigationbarBackground;
+    }
+    // Dropdowns in the navigationbar
+    .navigationbar .dropdown-menu {
+      position: static;
+      top: auto;
+      left: auto;
+      float: none;
+      display: block;
+      max-width: none;
+      margin: 0 15px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      .border-radius(0);
+      .box-shadow(none);
+    }
+    .navigationbar .dropdown-menu:before,
+    .navigationbar .dropdown-menu:after {
+      display: none;
+    }
+    .navigationbar .dropdown-menu .divider {
+      display: none;
+    }
+    // Forms in navigationbar
+    .navigationbar-form,
+    .navigationbar-search {
+      float: none;
+      padding: (@baseLineHeight / 2) 15px;
+      margin: (@baseLineHeight / 2) 0;
+      border-top: 1px solid @navigationbarBackground;
+      border-bottom: 1px solid @navigationbarBackground;
+      @shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+      .box-shadow(@shadow);
+    }
+    // Pull right (secondary) navigation content
+    .navigationbar .navigation.pull-right {
+      float: none;
+      margin-left: 0;
+    }
+    // Static navigationbar
+    .navigationbar-static .navigationbar-inner {
+      padding-left:  10px;
+      padding-right: 10px;
+    }
+    // navigationbar button
+    .btn-navigationbar {
+      display: block;
+    }
+    // Hide everything in the navigationbar save .product and toggle button
+    .navigation-collapse {
+      overflow: hidden;
+      height: 0;
+    }
+    */
 }
 @media (min-width: 980px) {
   
