@@ -329,7 +329,7 @@
           <label class="checkbox">
             <input type="checkbox"> Check me out
           </label>
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="button">Submit</button>
         </form>
       </div>
 
@@ -337,7 +337,7 @@
         <h1>Search form</h1>
         <form class="form-search">
           <input type="text" class="input-medium search-query">
-          <button type="submit" class="btn">Search</button>
+          <button type="submit" class="button">Search</button>
         </form>
       </div>
 
@@ -349,7 +349,7 @@
           <label class="checkbox">
             <input type="checkbox"> Remember?
           </label>
-          <button type="submit" class="btn">Sign in</button>
+          <button type="submit" class="button">Sign in</button>
         </form>
       </div>
 
@@ -415,8 +415,8 @@
               </div>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Save changes</button>
-              <button class="btn">Cancel</button>
+              <button type="submit" class="button button-primary">Save changes</button>
+              <button class="button">Cancel</button>
             </div>
           </fieldset>
         </form>
@@ -488,8 +488,8 @@
               </div>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Save changes</button>
-              <button class="btn">Cancel</button>
+              <button type="submit" class="button button-primary">Save changes</button>
+              <button class="button">Cancel</button>
             </div>
           </fieldset>
         </form>
@@ -603,14 +603,58 @@
               </div>
             </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Save changes</button>
-              <button class="btn">Cancel</button>
+              <button type="submit" class="button button-primary">Save changes</button>
+              <button class="button">Cancel</button>
             </div>
           </fieldset>
         </form>
       </div>
 
       <div class="row">
+        <h1>buttons</h1>
+        <button class="button" href="#">Default</button>
+        <button class="button button-primary" href="#">Primary</button>
+        <button class="button button-info" href="#">Info</button>
+        <button class="button button-success" href="#">Success</button>
+        <button class="button button-warning" href="#">Warning</button>
+        <button class="button button-danger" href="#">Danger</button>
+        <button class="button button-inverse" href="#">Inverse</button>
+      </div>
+
+      <div class="row">
+        <h1>buttons size</h1>
+        <div class="column4">
+          <button class="button button-large button-primary" href="#">Primary Action</button>
+          <button class="button button-large" href="#">Action</button>
+        </div>
+        <div class="column4">
+          <button class="button button-small button-primary" href="#">Primary Action</button>
+          <button class="button button-small" href="#">Action</button>
+        </div>
+        <div class="column4">
+          <button class="button button-mini button-primary" href="#">Primary Action</button>
+          <button class="button button-mini" href="#">Action</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <h1>buttons disable state</h1>
+        <div class="column6">
+          <a class="button button-large button-primary disabled" href="#">Primary Link</a>
+          <a class="button button-large disbled" href="#">Link</a>
+        </div>
+        <div class="column6">
+          <button class="button button-large button-primary" disabled="disabled" href="#">Primary Button</button>
+          <button class="button button-large" href="#" disabled>Button</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <h1>buttons multiple tags</h1>
+        <a class="button button-large" href="#">Link</a>
+        <button class="button button-large" href="#">Button</button>
+        <input type="button" class="button button-large" value="Input">
+        <input type="submit" class="button button-large" value="Submit">
       </div>
 
     </div>
