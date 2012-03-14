@@ -449,6 +449,15 @@ table {
  *  licensed under MIT license
  *  http://www.opensource.org/licenses/mit-license.php
  */
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .border-radius {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

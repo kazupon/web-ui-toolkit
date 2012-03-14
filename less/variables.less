@@ -6,11 +6,6 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
-// links
-
-@linkColor: #08c;
-@linkColorHover: darken(@linkColor, 15%);
-
 
 // gray colors
 
@@ -35,22 +30,67 @@
 @purple: #7a43b6;
 
 
+// all
+
+@bodyBackground: @white;
+@textColor: @grayDark;
+
+
+// links
+
+@linkColor: #08c;
+@linkColorHover: darken(@linkColor, 15%);
+
+
 // typography
 
 @baseFontSize: 13px;
 @baseFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
 @baseLineHeight: 18px;
-@textColor: @grayDark;
+@altFontFamily: Georgia, "Times New Roman", Times, serif;
+
+@headingsFontFamily: inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight: bold;    // instead of browser default, bold
+@headingsColor: inherit; // empty to use BS default, @textColor
+
+
+// tables
+
+@tableBackground: transparent; // overall background-color
+@tableBackgroundAccent: #f9f9f9; // for striping
+@tableBackgroundHover: #f5f5f5; // for hover
+@tableBorder: #ddd; // table and cell border
+
+
+// buttons
+
+@buttonBackground: @white;
+@buttonBackgroundHighlight: darken(@white, 10%);
+@buttonBorder: darken(@white, 20%);
+@buttonPrimaryBackground: @linkColor;
+@buttonPrimaryBackgroundHighlight: spin(@buttonPrimaryBackground, 15%);
+@buttonInfoBackground: #5bc0de;
+@buttonInfoBackgroundHighlight: #2f96b4;
+@buttonSuccessBackground: #62c462;
+@buttonSuccessBackgroundHighlight: #51a351;
+@buttonWarningBackground: lighten(@orange, 15%);
+@buttonWarningBackgroundHighlight: @orange;
+@buttonDangerBackground: #ee5f5b;
+@buttonDangerBackgroundHighlight: #bd362f;
+@buttonInverseBackground: @gray;
+@buttonInverseBackgroundHighlight: @grayDarker;
+
+
+// forms
+
+@inputBackground: @white;
+@inputBorder: #ccc;
+@inputDisabledBackground: @grayLighter;
 
 
 // Hr border color
 
 @hrBorder: @grayLighter;
-
-
-// Buttons
-
-@primaryButtonBackground: @linkColor;
 
 
 // Z-index master list
@@ -79,10 +119,16 @@
 @navigationbarHeight: 40px;
 @navigationbarBackground: @grayDarker;
 @navigationbarBackgroundHighlight: @grayDark;
-@navigationbarLinkBackgroundHover: transparent;
 @navigationbarText: @grayLight;
 @navigationbarLinkColor: @grayLight;
 @navigationbarLinkColorHover: @white;
+@navigationbarLinkColorActive: @navigationbarLinkColorHover;
+@navigationbarLinkBackgroundHover: transparent;
+@navigationbarLinkBackgroundActive: @navigationbarBackground;
+@navigationbarSearchBackground: lighten(@navigationbarBackground, 25%);
+@navigationbarSearchBackgroundFocus: @white;
+@navigationbarSearchBorder: darken(@navigationbarSearchBackground, 30%);
+@navigationbarSearchPlaceholderColor: #ccc;
 
 
 // form states and alerts

@@ -19,26 +19,65 @@
  *  licensed under MIT license
  *  http://www.opensource.org/licenses/mit-license.php
  */
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.visible-phone {
+  display: none;
+}
+.visible-tablet {
+  display: none;
+}
+.visible-desktop {
+  display: block;
+}
+.hidden-phone {
+  display: block;
+}
+.hidden-tablet {
+  display: block;
+}
+.hidden-desktop {
+  display: none;
+}
+@media (max-width: 767px) {
+  .visible-phone {
+    display: block;
+  }
+  .hidden-phone {
+    display: none;
+  }
+  .hidden-desktop {
+    display: block;
+  }
+  .visible-desktop {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .visible-tablet {
+    display: block;
+  }
+  .hidden-tablet {
+    display: none;
+  }
+  .hidden-desktop {
+    display: block;
+  }
+  .visible-desktop {
+    display: none;
+  }
+}
 @media (max-width: 480px) {
   .page-header h1 small {
     display: block;
     line-height: 18px;
-  }
-  input[class*="column"],
-  select[class*="column"],
-  textarea[class*="column"],
-  .uneditable-input {
-    display: block;
-    width: 100%;
-    min-height: 28px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .input-prepend input[class*="column"],
-  .input-append input[class*="column"] {
-    width: auto;
   }
   input[type="checkbox"],
   input[type="radio"] {
@@ -61,7 +100,15 @@
     padding-right: 10px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .navigationbar-fixed-top {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
   .container {
     width: auto;
     padding: 0 20px;
@@ -78,6 +125,22 @@
     display: block;
     width: auto;
     margin: 0;
+  }
+  input[class*="column"],
+  select[class*="column"],
+  textarea[class*="column"],
+  .uneditable-input {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .input-prepend input[class*="column"],
+  .input-append input[class*="column"] {
+    width: auto;
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -98,46 +161,87 @@
     float: left;
     margin-left: 20px;
   }
-  .column1 {
-    width: 42px;
+  .container,
+  .navigation-fixed-top .container,
+  .navigation-fixed-bottom .container {
+    width: 724px;
   }
-  .column2 {
-    width: 104px;
-  }
-  .column3 {
-    width: 166px;
-  }
-  .column4 {
-    width: 228px;
-  }
-  .column5 {
-    width: 290px;
-  }
-  .column6 {
-    width: 352px;
-  }
-  .column7 {
-    width: 414px;
-  }
-  .column8 {
-    width: 476px;
-  }
-  .column9 {
-    width: 538px;
-  }
-  .column10 {
-    width: 600px;
+  .column12 {
+    width: 724px;
   }
   .column11 {
     width: 662px;
   }
-  .column12,
-  .container {
-    width: 724px;
+  .column10 {
+    width: 600px;
+  }
+  .column9 {
+    width: 538px;
+  }
+  .column8 {
+    width: 476px;
+  }
+  .column7 {
+    width: 414px;
+  }
+  .column6 {
+    width: 352px;
+  }
+  .column5 {
+    width: 290px;
+  }
+  .column4 {
+    width: 228px;
+  }
+  .column3 {
+    width: 166px;
+  }
+  .column2 {
+    width: 104px;
+  }
+  .column1 {
+    width: 42px;
+  }
+  .offset12 {
+    margin-left: 764px;
+  }
+  .offset11 {
+    margin-left: 702px;
+  }
+  .offset10 {
+    margin-left: 640px;
+  }
+  .offset9 {
+    margin-left: 578px;
+  }
+  .offset8 {
+    margin-left: 516px;
+  }
+  .offset7 {
+    margin-left: 454px;
+  }
+  .offset6 {
+    margin-left: 392px;
+  }
+  .offset5 {
+    margin-left: 330px;
+  }
+  .offset4 {
+    margin-left: 268px;
+  }
+  .offset3 {
+    margin-left: 206px;
+  }
+  .offset2 {
+    margin-left: 144px;
+  }
+  .offset1 {
+    margin-left: 82px;
   }
   .flexible-row {
     width: 100%;
     zoom: 1;
+    width: 99.999999993%;
   }
   .flexible-row:before,
   .flexible-row:after {
@@ -155,216 +259,110 @@
   .flexible-row > [class*="column"]:first-child {
     margin-left: 0;
   }
-  .flexible-row .column1 {
-    width: 5.801104972%;
+  input,
+  textarea,
+  .uneditable-input {
+    margin-left: 0;
   }
-  .flexible-row .column2 {
-    width: 14.364640883%;
+  input.column12, textarea.column12, .uneditable-input.column12 {
+    width: 714px;
   }
-  .flexible-row .column3 {
-    width: 22.928176794%;
-  }
-  .flexible-row .column4 {
-    width: 31.491712705%;
-  }
-  .flexible-row .column5 {
-    width: 40.055248616%;
-  }
-  .flexible-row .column6 {
-    width: 48.618784527%;
-  }
-  .flexible-row .column7 {
-    width: 57.182320438000005%;
-  }
-  .flexible-row .column8 {
-    width: 65.74585634900001%;
-  }
-  .flexible-row .column9 {
-    width: 74.30939226%;
-  }
-  .flexible-row .column10 {
-    width: 82.87292817100001%;
-  }
-  .flexible-row .column11 {
-    width: 91.436464082%;
-  }
-  .flexible-row .column12 {
-    width: 99.999999993%;
-  }
-  input.column1,
-  textarea.column1,
-  .uneditable-input.column1 {
-    width: 32px;
-  }
-  input.column2,
-  textarea.column2,
-  .uneditable-input.column2 {
-    width: 94px;
-  }
-  input.column3,
-  textarea.column3,
-  .uneditable-input.column3 {
-    width: 156px;
-  }
-  input.column4,
-  textarea.column4,
-  .uneditable-input.column4 {
-    width: 218px;
-  }
-  input.column5,
-  textarea.column5,
-  .uneditable-input.column5 {
-    width: 280px;
-  }
-  input.column6,
-  textarea.column6,
-  .uneditable-input.column6 {
-    width: 342px;
-  }
-  input.column7,
-  textarea.column7,
-  .uneditable-input.column7 {
-    width: 404px;
-  }
-  input.column8,
-  textarea.column8,
-  .uneditable-input.column8 {
-    width: 466px;
-  }
-  input.column9,
-  textarea.column9,
-  .uneditable-input.column9 {
-    width: 528px;
-  }
-  input.column10,
-  textarea.column10,
-  .uneditable-input.column10 {
-    width: 590px;
-  }
-  input.column11,
-  textarea.column11,
-  .uneditable-input.column11 {
+  input.column11, textarea.column11, .uneditable-input.column11 {
     width: 652px;
   }
-  input.column12,
-  textarea.column12,
-  .uneditable-input.column12 {
-    width: 714px;
+  input.column10, textarea.column10, .uneditable-input.column10 {
+    width: 590px;
+  }
+  input.column9, textarea.column9, .uneditable-input.column9 {
+    width: 528px;
+  }
+  input.column8, textarea.column8, .uneditable-input.column8 {
+    width: 466px;
+  }
+  input.column7, textarea.column7, .uneditable-input.column7 {
+    width: 404px;
+  }
+  input.column6, textarea.column6, .uneditable-input.column6 {
+    width: 342px;
+  }
+  input.column5, textarea.column5, .uneditable-input.column5 {
+    width: 280px;
+  }
+  input.column4, textarea.column4, .uneditable-input.column4 {
+    width: 218px;
+  }
+  input.column3, textarea.column3, .uneditable-input.column3 {
+    width: 156px;
+  }
+  input.column2, textarea.column2, .uneditable-input.column2 {
+    width: 94px;
+  }
+  input.column1, textarea.column1, .uneditable-input.column1 {
+    width: 32px;
   }
 }
 @media (max-width: 979px) {
   body {
     padding-top: 0;
   }
-  /*
-    // Unfix the navbar
-    .navigationbar-fixed-top {
-      position: static;
-      margin-bottom: @baseLineHeight;
-    }
-    .navigationbar-fixed-top .navigationbar-inner {
-      padding: 5px;
-    }
-    .navigationbar .container {
-      width: auto;
-      padding: 0;
-    }
-    // Account for product name
-    .navigationbar .product {
-      padding-left: 10px;
-      padding-right: 10px;
-      margin: 0 0 0 -5px;
-    }
-    // navigation collapse clears product
-    .navigationbar .navigation-collapse {
-      clear: left;
-    }
-    // Block-level the navigation
-    .navigationbar .navigation {
-      float: none;
-      margin: 0 0 (@baseLineHeight / 2);
-    }
-    .navigationbar .navigation > li {
-      float: none;
-    }
-    .navigationbar .navigation > li > a {
-      margin-bottom: 2px;
-    }
-    .navigationbar .navigation > .divider-vertical {
-      display: none;
-    }
-    .navigationbar .navigation .navigation-header {
-      color: @navigationbarText;
-      text-shadow: none;
-    }
-    // navigation and dropdown links in navigationbar
-    .navigationbar .navigation > li > a,
-    .navigationbar .dropdown-menu a {
-      padding: 6px 15px;
-      font-weight: bold;
-      color: @navigationbarLinkColor;
-      .border-radius(3px);
-    }
-    .navigationbar .dropdown-menu li + li a {
-      margin-bottom: 2px;
-    }
-    .navigationbar .nav > li > a:hover,
-    .navigationbar .dropdown-menu a:hover {
-      background-color: @navigationbarBackground;
-    }
-    // Dropdowns in the navigationbar
-    .navigationbar .dropdown-menu {
-      position: static;
-      top: auto;
-      left: auto;
-      float: none;
-      display: block;
-      max-width: none;
-      margin: 0 15px;
-      padding: 0;
-      background-color: transparent;
-      border: none;
-      .border-radius(0);
-      .box-shadow(none);
-    }
-    .navigationbar .dropdown-menu:before,
-    .navigationbar .dropdown-menu:after {
-      display: none;
-    }
-    .navigationbar .dropdown-menu .divider {
-      display: none;
-    }
-    // Forms in navigationbar
-    .navigationbar-form,
-    .navigationbar-search {
-      float: none;
-      padding: (@baseLineHeight / 2) 15px;
-      margin: (@baseLineHeight / 2) 0;
-      border-top: 1px solid @navigationbarBackground;
-      border-bottom: 1px solid @navigationbarBackground;
-      @shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
-      .box-shadow(@shadow);
-    }
-    // Pull right (secondary) navigation content
-    .navigationbar .navigation.pull-right {
-      float: none;
-      margin-left: 0;
-    }
-    // Static navigationbar
-    .navigationbar-static .navigationbar-inner {
-      padding-left:  10px;
-      padding-right: 10px;
-    }
-    // navigationbar button
-    .btn-navigationbar {
-      display: block;
-    }
-    // Hide everything in the navigationbar save .product and toggle button
-    .navigation-collapse {
-      overflow: hidden;
-      height: 0;
-    }
-    */
+  .navigationbar-fixed-top {
+    position: static;
+    margin-bottom: 18px;
+  }
+  .navigationbar-fixed-top .navigationbar-inner {
+    padding: 5px;
+  }
+  .navigationbar .container {
+    width: auto;
+    padding: 0;
+  }
+  .navigationbar .product {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 0 0 -5px;
+  }
+  .navigationbar .navigation {
+    float: none;
+    margin: 0 0 9px;
+  }
+  .navigationbar .navigation > li {
+    float: none;
+  }
+  .navigationbar .navigation > li > a {
+    margin-bottom: 2px;
+  }
+  .navigationbar .navigation > .divider-vertical {
+    display: none;
+  }
+  .navigationbar .navigation .navigation-header {
+    color: #999999;
+    text-shadow: none;
+  }
+  .navigationbar .navigation > li > a:hover {
+    background-color: #222222;
+  }
+  .navigationbar-form,
+  .navigationbar-search {
+    float: none;
+    padding: 9px 15px;
+    margin: 9px 0;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  .navigationbar .navigation.pull-right {
+    float: none;
+    margin-left: 0;
+  }
+  .navigationbar-static .navigationbar-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .button-navigationbar {
+    display: block;
+  }
 }
 @media (min-width: 980px) {
   
@@ -387,46 +385,87 @@
     float: left;
     margin-left: 30px;
   }
-  .column1 {
-    width: 70px;
+  .container,
+  .navigation-fixed-top .container,
+  .navigation-fixed-bottom .container {
+    width: 1170px;
   }
-  .column2 {
-    width: 170px;
-  }
-  .column3 {
-    width: 270px;
-  }
-  .column4 {
-    width: 370px;
-  }
-  .column5 {
-    width: 470px;
-  }
-  .column6 {
-    width: 570px;
-  }
-  .column7 {
-    width: 670px;
-  }
-  .column8 {
-    width: 770px;
-  }
-  .column9 {
-    width: 870px;
-  }
-  .column10 {
-    width: 970px;
+  .column12 {
+    width: 1170px;
   }
   .column11 {
     width: 1070px;
   }
-  .column12,
-  .container {
-    width: 1170px;
+  .column10 {
+    width: 970px;
+  }
+  .column9 {
+    width: 870px;
+  }
+  .column8 {
+    width: 770px;
+  }
+  .column7 {
+    width: 670px;
+  }
+  .column6 {
+    width: 570px;
+  }
+  .column5 {
+    width: 470px;
+  }
+  .column4 {
+    width: 370px;
+  }
+  .column3 {
+    width: 270px;
+  }
+  .column2 {
+    width: 170px;
+  }
+  .column1 {
+    width: 70px;
+  }
+  .offset12 {
+    margin-left: 1230px;
+  }
+  .offset11 {
+    margin-left: 1130px;
+  }
+  .offset10 {
+    margin-left: 1030px;
+  }
+  .offset9 {
+    margin-left: 930px;
+  }
+  .offset8 {
+    margin-left: 830px;
+  }
+  .offset7 {
+    margin-left: 730px;
+  }
+  .offset6 {
+    margin-left: 630px;
+  }
+  .offset5 {
+    margin-left: 530px;
+  }
+  .offset4 {
+    margin-left: 430px;
+  }
+  .offset3 {
+    margin-left: 330px;
+  }
+  .offset2 {
+    margin-left: 230px;
+  }
+  .offset1 {
+    margin-left: 130px;
   }
   .flexible-row {
     width: 100%;
     zoom: 1;
+    width: 100%;
   }
   .flexible-row:before,
   .flexible-row:after {
@@ -444,100 +483,45 @@
   .flexible-row > [class*="column"]:first-child {
     margin-left: 0;
   }
-  .flexible-row .column1 {
-    width: 5.982905983%;
+  input,
+  textarea,
+  .uneditable-input {
+    margin-left: 0;
   }
-  .flexible-row .column2 {
-    width: 14.529914530000001%;
+  input.column12, textarea.column12, .uneditable-input.column12 {
+    width: 1160px;
   }
-  .flexible-row .column3 {
-    width: 23.076923077%;
-  }
-  .flexible-row .column4 {
-    width: 31.623931624%;
-  }
-  .flexible-row .column5 {
-    width: 40.170940171000005%;
-  }
-  .flexible-row .column6 {
-    width: 48.717948718%;
-  }
-  .flexible-row .column7 {
-    width: 57.264957265%;
-  }
-  .flexible-row .column8 {
-    width: 65.81196581200001%;
-  }
-  .flexible-row .column9 {
-    width: 74.358974359%;
-  }
-  .flexible-row .column10 {
-    width: 82.905982906%;
-  }
-  .flexible-row .column11 {
-    width: 91.45299145300001%;
-  }
-  .flexible-row .column12 {
-    width: 100%;
-  }
-  input.column1,
-  textarea.column1,
-  .uneditable-input.column1 {
-    width: 60px;
-  }
-  input.column2,
-  textarea.column2,
-  .uneditable-input.column2 {
-    width: 160px;
-  }
-  input.column3,
-  textarea.column3,
-  .uneditable-input.column3 {
-    width: 260px;
-  }
-  input.column4,
-  textarea.column4,
-  .uneditable-input.column4 {
-    width: 360px;
-  }
-  input.column5,
-  textarea.column5,
-  .uneditable-input.column5 {
-    width: 460px;
-  }
-  input.column6,
-  textarea.column6,
-  .uneditable-input.column6 {
-    width: 560px;
-  }
-  input.column7,
-  textarea.column7,
-  .uneditable-input.column7 {
-    width: 660px;
-  }
-  input.column8,
-  textarea.column8,
-  .uneditable-input.column8 {
-    width: 760px;
-  }
-  input.column9,
-  textarea.column9,
-  .uneditable-input.column9 {
-    width: 860px;
-  }
-  input.column10,
-  textarea.column10,
-  .uneditable-input.column10 {
-    width: 960px;
-  }
-  input.column11,
-  textarea.column11,
-  .uneditable-input.column11 {
+  input.column11, textarea.column11, .uneditable-input.column11 {
     width: 1060px;
   }
-  input.column12,
-  textarea.column12,
-  .uneditable-input.column12 {
-    width: 1160px;
+  input.column10, textarea.column10, .uneditable-input.column10 {
+    width: 960px;
+  }
+  input.column9, textarea.column9, .uneditable-input.column9 {
+    width: 860px;
+  }
+  input.column8, textarea.column8, .uneditable-input.column8 {
+    width: 760px;
+  }
+  input.column7, textarea.column7, .uneditable-input.column7 {
+    width: 660px;
+  }
+  input.column6, textarea.column6, .uneditable-input.column6 {
+    width: 560px;
+  }
+  input.column5, textarea.column5, .uneditable-input.column5 {
+    width: 460px;
+  }
+  input.column4, textarea.column4, .uneditable-input.column4 {
+    width: 360px;
+  }
+  input.column3, textarea.column3, .uneditable-input.column3 {
+    width: 260px;
+  }
+  input.column2, textarea.column2, .uneditable-input.column2 {
+    width: 160px;
+  }
+  input.column1, textarea.column1, .uneditable-input.column1 {
+    width: 60px;
   }
 }

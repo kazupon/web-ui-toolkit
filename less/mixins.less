@@ -108,168 +108,116 @@
   }
 }
 
-#grid-system {
-  .columns (@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, @columns) {
-    width: (@gridColumnWidth * @columns) + (@gridSpaceWidth * (@columns - 1));
-  }
-  .gridColumn (@gridSpaceWidth) {
-    float: left;
-    margin-left: @gridSpaceWidth;
-  }
-  .generate (@gridColumns, @gridColumnWidth, @gridSpaceWidth) {
+// Grid
+#grid {
+
+  .core (@gridColumnWidth, @gridSpaceWidth) {
+
+    .columnX (@index) when (@index > 0) {
+      (~".column@{index}") { .column(@index); }
+      .columnX(@index - 1);
+    }
+    .columnX (0) {}
+
+    .offsetX (@index) when (@index > 0) {
+      (~".offset@{index}") { .offset(@index); }
+      .offsetX(@index - 1);
+    }
+    .offsetX (0) {}
+
+    .offset (@columns) {
+      margin-left: (@gridColumnWidth * @columns) + (@gridSpaceWidth * (@columns - 1)) + (@gridSpaceWidth * 2);
+    }
+
+    .column (@columns) {
+      width: (@gridColumnWidth * @columns) + (@gridSpaceWidth * (@columns - 1));
+    }
+
     .row {
       margin-left: @gridSpaceWidth * -1;
       .clearfix();
     }
-    [class*="column"] {
-      #grid-system > .gridColumn(@gridSpaceWidth);
-    }
-    .column1 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 1);
-    }
-    .column2 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 2);
-    }
-    .column3 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 3);
-    }
-    .column4 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 4);
-    }
-    .column5 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 5);
-    }
-    .column6 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 6);
-    }
-    .column7 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 7);
-    }
-    .column8 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 8);
-    }
-    .column9 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 9);
-    }
-    .column10 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 10);
-    }
-    .column11 {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 11);
-    }
-    .column12, .container {
-      #grid-system > .columns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 12);
-    }
-  }
-}
 
-#flexible-grid-system {
-  .columns (@flexibleGridSpaceWidth, @flexibleGridColumnWidth, @columns) {
-    width: 1% * (@flexibleGridColumnWidth * @columns) + (@flexibleGridSpaceWidth * (@columns - 1));
+    [class*="column"] {
+      float: left;
+      margin-left: @gridSpaceWidth;
+    }
+
+    // Set the container width, and override it for fixed navbars in media queries
+    .container,
+    .navigation-fixed-top .container,
+    .navigation-fixed-bottom .container { .column(@gridColumns); }
+
+    // generate .columnX and .offsetX
+    .columnX (@gridColumns);
+    .offsetX (@gridColumns);
+
   }
-  .gridColumn (@flexibleGridSpaceWidth) {
-    float: left;
-    margin-left: @flexibleGridSpaceWidth;
-  }
-  .generate (@gridColumns, @flexibleGridColumnWidth, @flexibleGridSpaceWidth) {
+
+  .flexible (@flexibleGridColumnWidth, @flexibleGridSpaceWidth) {
+
+    .columnX(@index) when (@index > 0) {
+      (~"> .column@{index}") { .column(@index); }
+      .columnX(@index - 1);
+    }
+    .columnX (0) {}
+
+    .column (@columns) {
+      width: (@flexibleGridColumnWidth * @columns) + (@flexibleGridSpaceWidth * (@columns - 1));
+    }
+
     .flexible-row {
       width: 100%;
       .clearfix();
       > [class*="column"] {
-        #flexible-grid-system > .gridColumn(@flexibleGridSpaceWidth);
+        float: left;
+        margin-left: @flexibleGridSpaceWidth;
       }
       > [class*="column"]:first-child {
         margin-left: 0;
       }
-      .column1 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 1);
-      }
-      .column2 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 2);
-      }
-      .column3 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 3);
-      }
-      .column4 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 4);
-      }
-      .column5 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 5);
-      }
-      .column6 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 6);
-      }
-      .column7 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 7);
-      }
-      .column8 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 8);
-      }
-      .column9 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 9);
-      }
-      .column10 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 10);
-      }
-      .column11 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 11);
-      }
-      .column12 {
-        #flexible-grid-system > .columns(@flexibleGridSpaceWidth, @flexibleGridColumnWidth, 12);
-      }
-    }
-  }
-}
 
-// Input grid system
-#input-grid-system {
-  .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, @columns) {
-    width: ((@gridColumnWidth) * @columns) + (@gridSpaceWidth * (@columns - 1)) - 10;
+      // generate .columnX
+      .column (@gridColumns);
+    }
+
   }
-  .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth) {
+
+  .input(@gridColumnWidth, @gridSpaceWidth) {
+
+    .columnX (@index) when (@index > 0) {
+      (~"input.column@{index}, textarea.column@{index}, .uneditable-input.column@{index}") { .column(@index); }
+      .columnX(@index - 1);
+    }
+    .columnX (0) {}
+
+    .column(@columns) {
+      width: ((@gridColumnWidth) * @columns) + (@gridSpaceWidth * (@columns - 1)) - 10;
+    }
+
     input,
     textarea,
     .uneditable-input {
-      &.column1 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 1);
-      }
-      &.column2 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 2);
-      }
-      &.column3 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 3);
-      }
-      &.column4 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 4);
-      }
-      &.column5 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 5);
-      }
-      &.column6 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 6);
-      }
-      &.column7 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 7);
-      }
-      &.column8 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 8);
-      }
-      &.column9 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 9);
-      }
-      &.column10 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 10);
-      }
-      &.column11 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 11);
-      }
-      &.column12 {
-        #input-grid-system > .inputColumns(@gridSpaceWidth, @gridColumnWidth, @gridRowWidth, 12);
-      }
+      margin-left: 0; // override margin-left from core grid system
     }
+
+    // generate .columnX
+    .columnX (@gridColumns);
+
   }
+
 }
 
+// Block level inputs
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px; // Make inputs at least the height of their button counterpart
+  //  Makes inputs behave like true block-level elements
+  .box-sizing(border-box);
+}
+
+// Mixin for form field states
 .formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) {
   // Set the text color
   > label,
@@ -341,9 +289,16 @@
   transition: @transition;
 }
 
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  -ms-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
 .opacity(@opacity: 100) {
   opacity: @opacity / 100;
-  filter: e(%("alpha(opacity=%d)", @opacity));
+  filter: ~"alpha(opacity=@{opacity})";
 }
 
 .gradientBar(@primaryColor, @secondaryColor) {
@@ -401,6 +356,7 @@
     background-image: -webkit-radial-gradient(circle, @innerColor, @outerColor);
     background-image: -moz-radial-gradient(circle, @innerColor, @outerColor);
     background-image: -ms-radial-gradient(circle, @innerColor, @outerColor);
+    background-image: -o-radial-gradient(circle, @innerColor, @outerColor);
     background-repeat: no-repeat;
     // Opera cannot do radial gradients yet
   }
@@ -417,7 +373,23 @@
 
 // Reset filters for IE
 .reset-filter() {
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+// Dividers (basically an hr) within dropdowns and nav lists
+.navigation-divider() {
+  height: 1px;
+  margin: ((@baseLineHeight / 2) - 1) 1px; // 8px 1px
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid @white;
+
+  // IE7 needs a set width since we gave a height. Restricting just
+  // to IE7 to keep the 1px left/right space in other browsers.
+  // It is unclear where IE is getting the extra space that we need
+  // to negative-margin away, but so it goes.
+  *width: 100%;
+  *margin: -5px 0 5px;
 }
 
 .buttonBackground(@startColor, @endColor) {
@@ -434,3 +406,10 @@
     background-color: darken(@endColor, 10%) e("\9");
   }
 }
+
+// Vertically center elements in the navbar.
+// Example: an element has a height of 30px, so write out `.navbarVerticalAlign(30px);` to calculate the appropriate top margin.
+.navigationbarVerticalAlign(@elementHeight) {
+  margin-top: (@navigationbarHeight - @elementHeight) / 2;
+}
+

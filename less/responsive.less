@@ -9,35 +9,42 @@
 @import "./variables.less";
 @import "./mixins.less";
 
+// For desktops
+.visible-phone { display: none; }
+.visible-tablet { display: none; }
+.visible-desktop { display: block; }
+.hidden-phone { display: block; }
+.hidden-tablet { display: block; }
+.hidden-desktop { display: none; }
+
+
+// Phones only
+@media (max-width: 767px) {
+  // Show
+  .visible-phone { display: block; }
+  // Hide
+  .hidden-phone { display: none; }
+  // Hide everything else
+  .hidden-desktop { display: block; }
+  .visible-desktop { display: none; }
+}
+
+// Tablets & small desktops only
+@media (min-width: 768px) and (max-width: 979px) {
+  // Show
+  .visible-tablet { display: block; }
+  // Hide
+  .hidden-tablet { display: none; }
+  // Hide everything else
+  .hidden-desktop { display: block; }
+  .visible-desktop { display: none; }
+}
 
 // up to landscape phone
 @media (max-width: 480px) {
-  //.navigation-collapse {
-  //  -webkit-transform: translate3d(0, 0, 0); // activate the GPU
-  //}
-  // Block level the page header small tag for readability
   .page-header h1 small {
     display: block;
     line-height: @baseLineHeight;
-  }
-  // Make span* classes full width
-  input[class*="column"],
-  select[class*="column"],
-  textarea[class*="column"],
-  .uneditable-input {
-    display: block;
-    width: 100%;
-    min-height: 28px; // Make inputs at least the height of their button counterpart
-    // Makes inputs behave like true block-level elements
-    -webkit-box-sizing: border-box; // Older Webkit
-    -moz-box-sizing: border-box; // Older FF
-    -ms-box-sizing: border-box; // IE8
-    box-sizing: border-box; // CSS3 spec
-  }
-  // But don't let it screw up prepend/append inputs
-  .input-prepend input[class*="column"],
-  .input-append input[class*="column"] {
-    width: auto;
   }
   // Update checkboxes for iOS
   input[type="checkbox"],
@@ -67,7 +74,16 @@
 }
 
 // landscape photo to small desktop & portrait tablet
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  // Padding to set content in a bit
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .navigationbar-fixed-top {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
   .container {
     width: auto;
     padding: 0 20px;
@@ -85,14 +101,26 @@
     width: auto;
     margin: 0;
   }
+  // Make span* classes full width
+  input[class*="column"],
+  select[class*="column"],
+  textarea[class*="column"],
+  .uneditable-input {
+    .input-block-level();
+  }
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input[class*="column"],
+  .input-append input[class*="column"] {
+    width: auto;
+  }
+
 }
 
 // portrait tablet to default desktop
 @media (min-width: 768px) and (max-width: 979px) {
-  #grid-system > .generate(12, 42px, 20px);
-  #flexible-grid-system > .generate(12, 5.801104972%, 2.762430939%);
-  #input-grid-system > .generate(12, 42px, 20px);
-
+  #grid > .core(42px, 20px);
+  #grid > .flexible(5.801104972%, 2.762430939%);
+  #grid > .input(42px, 20px);
 }
 
 // tablets and below
@@ -100,8 +128,7 @@
   body {
     padding-top: 0;
   }
-  /*
-  // Unfix the navbar
+  // Unfix the navigationbar
   .navigationbar-fixed-top {
     position: static;
     margin-bottom: @baseLineHeight;
@@ -120,9 +147,9 @@
     margin: 0 0 0 -5px;
   }
   // navigation collapse clears product
-  .navigationbar .navigation-collapse {
-    clear: left;
-  }
+  //.navigationbar .navigation-collapse {
+  //  clear: left;
+  //}
   // Block-level the navigation
   .navigationbar .navigation {
     float: none;
@@ -142,42 +169,43 @@
     text-shadow: none;
   }
   // navigation and dropdown links in navigationbar
-  .navigationbar .navigation > li > a,
-  .navigationbar .dropdown-menu a {
-    padding: 6px 15px;
-    font-weight: bold;
-    color: @navigationbarLinkColor;
-    .border-radius(3px);
+  .navigationbar .navigation > li > a {
+  //.navigationbar .dropdown-menu a {
+  //  padding: 6px 15px;
+  //  font-weight: bold;
+  //  color: @navigationbarLinkColor;
+  //  .border-radius(3px);
+  //}
+  //.navigationbar .dropdown-menu li + li a {
+  //  margin-bottom: 2px;
   }
-  .navigationbar .dropdown-menu li + li a {
-    margin-bottom: 2px;
-  }
-  .navigationbar .nav > li > a:hover,
-  .navigationbar .dropdown-menu a:hover {
+  .navigationbar .navigation > li > a:hover {
+  //.navigationbar .nav > li > a:hover,
+  //.navigationbar .dropdown-menu a:hover {
     background-color: @navigationbarBackground;
   }
   // Dropdowns in the navigationbar
-  .navigationbar .dropdown-menu {
-    position: static;
-    top: auto;
-    left: auto;
-    float: none;
-    display: block;
-    max-width: none;
-    margin: 0 15px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    .border-radius(0);
-    .box-shadow(none);
-  }
-  .navigationbar .dropdown-menu:before,
-  .navigationbar .dropdown-menu:after {
-    display: none;
-  }
-  .navigationbar .dropdown-menu .divider {
-    display: none;
-  }
+  //.navigationbar .dropdown-menu {
+  //  position: static;
+  //  top: auto;
+  //  left: auto;
+  //  float: none;
+  //  display: block;
+  //  max-width: none;
+  //  margin: 0 15px;
+  //  padding: 0;
+  //  background-color: transparent;
+  //  border: none;
+  //  .border-radius(0);
+  //  .box-shadow(none);
+  //}
+  //.navigationbar .dropdown-menu:before,
+  //.navigationbar .dropdown-menu:after {
+  //  display: none;
+  //}
+  //.navigationbar .dropdown-menu .divider {
+  //  display: none;
+  //}
   // Forms in navigationbar
   .navigationbar-form,
   .navigationbar-search {
@@ -200,15 +228,14 @@
     padding-right: 10px;
   }
   // navigationbar button
-  .btn-navigationbar {
+  .button-navigationbar {
     display: block;
   }
   // Hide everything in the navigationbar save .product and toggle button
-  .navigation-collapse {
-    overflow: hidden;
-    height: 0;
-  }
-  */
+  //.navigation-collapse {
+  //  overflow: hidden;
+  //  height: 0;
+  //}
 }
 
 
@@ -222,7 +249,8 @@
 
 // large tdesktop and up
 @media (min-width: 1200px) {
-  #grid-system > .generate(12, 70px, 30px);
-  #flexible-grid-system > .generate(12, 5.982905983%, 2.564102564%);
-  #input-grid-system > .generate(12, 70px, 30px);
+  #grid > .core(70px, 30px);
+  #grid> .flexible(5.982905983%, 2.564102564%);
+  #grid > .input(70px, 30px);
 }
+

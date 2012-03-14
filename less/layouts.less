@@ -24,8 +24,9 @@
 }
 
 // grid system
-#grid-system > .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth);
+//#grid-system > .generate(@gridColumns, @gridColumnWidth, @gridSpaceWidth);
+#grid > .core(@gridColumnWidth, @gridSpaceWidth);
 
 // flexible grid system
-#flexible-grid-system > .generate(@gridColumns, @flexibleGridColumnWidth, @flexibleGridSpaceWidth);
-
+//#flexible-grid-system > .generate(@gridColumns, @flexibleGridColumnWidth, @flexibleGridSpaceWidth);
+#grid > .flexible(@flexibleGridColumnWidth, @flexibleGridSpaceWidth);

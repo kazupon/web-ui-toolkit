@@ -9,6 +9,7 @@
 
 .button {
   display: inline-block;
+  .ie7-inline-block();
   padding: 4px 10px 4px;
   margin-bottom: 0; // For input.button
   font-size: @baseFontSize;
@@ -17,15 +18,14 @@
   text-align: center;
   text-shadow: 0 1px 1px rgba(255,255,255,.75);
   vertical-align: middle;
-  .buttonBackground(@white, darken(@white, 10%));
-  border: 1px solid #ccc;
-  border-bottom-color: #bbb;
+  .buttonBackground(@buttonBackground, @buttonBackgroundHighlight);
+  border: 1px solid @buttonBorder;
+  border-bottom-color: darken(@buttonBorder, 10%);
   .border-radius(4px);
   @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   .box-shadow(@shadow);
   cursor: pointer;
   // Give IE7 some love
-  .reset-filter();
   .ie7-restore-left-whitespace();
 }
 
@@ -118,37 +118,37 @@
 .button-danger.active,
 .button-success.active,
 .button-info.active,
-.button-dark.active {
+.button-inverse.active {
   color: rgba(255,255,255,.75);
 }
 
 .button-primary {
-  .buttonBackground(@primaryButtonBackground, spin(@primaryButtonBackground, 20));
+  .buttonBackground(@buttonPrimaryBackground, @buttonPrimaryBackgroundHighlight);
 }
 
 // Warning appears are orange
 .button-warning {
-  .buttonBackground(lighten(@orange, 15%), @orange);
+  .buttonBackground(@buttonWarningBackground, @buttonWarningBackgroundHighlight);
 }
 
 // Danger and error appear as red
 .button-danger {
-  .buttonBackground(#ee5f5b, #bd362f);
+  .buttonBackground(@buttonDangerBackground, @buttonDangerBackgroundHighlight);
 }
 
 // Success appears as green
 .button-success {
-  .buttonBackground(#62c462, #51a351);
+  .buttonBackground(@buttonSuccessBackground, @buttonSuccessBackgroundHighlight);
 }
 
 // Info appears as a neutral blue
 .button-info {
-  .buttonBackground(#5bc0de, #2f96b4);
+  .buttonBackground(@buttonInfoBackground, @buttonInfoBackgroundHighlight);
 }
 
 // Inverse appears as dark gray
 .button-inverse {
-  .buttonBackground(#454545, #262626);
+  .buttonBackground(@buttonInverseBackground, @buttonInverseBackgroundHighlight);
 }
 
 // Cross-browser Jank
@@ -162,13 +162,17 @@ input[type="submit"].button {
   // IE7 has some default padding on button controls
   *padding-top: 2px;
   *padding-bottom: 2px;
-  &.large {
+  &.button-large {
     *padding-top: 7px;
     *padding-bottom: 7px;
   }
-  &.small {
+  &.button-small {
     *padding-top: 3px;
     *padding-bottom: 3px;
+  }
+  &.button-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
   }
 }
 

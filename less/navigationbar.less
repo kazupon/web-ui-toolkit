@@ -8,6 +8,9 @@
 
 
 .navigationbar {
+  // Fix for IE7's bad z-indexing so dropdowns don't appear below content that follows the navigationbar
+  *position: relative;
+  *z-index: 2;
   overflow: visible;
   margin-bottom: @baseLineHeight;
 }
@@ -20,6 +23,12 @@
   .border-radius(4px);
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   .box-shadow(@shadow);
+}
+
+// Set width to auto for default container
+// We then reset it for fixed navigationbars in the #gridSystem mixin
+.navigationbar .container {
+  width: auto;
 }
 
 // navigationbar button for toggling navigationbar items in responsive layouts
@@ -57,6 +66,7 @@
 
 // Brand, links, text, and buttons
 .navigationbar {
+  color: @navigationbarText;
   // Hover and active states
   .product:hover {
     text-decoration: none;
@@ -75,17 +85,12 @@
   // Plain text in topbar
   .navigationbar-text {
     margin-bottom: 0;
-    line-height: 40px;
-    color: @navigationbarText;
-    a:hover {
-      color: @white;
-      background-color: transparent;
-    }
+    line-height: @navigationbarHeight;
   }
   // Buttons in navigationbar
   .button,
   .button-group {
-    margin-top: 5px; // make buttons vertically centered in navigationbar
+    .navigationbarVerticalAlign(30px); // Vertically center in navigationbar
   }
   .button-group .button {
     margin-top: 0; // then undo the margin here so we don't accidentally double it
@@ -97,14 +102,15 @@
   margin-bottom: 0; // remove default bottom margin
   .clearfix();
   input,
-  select {
-    display: inline-block;
-    margin-top: 5px;
-    margin-bottom: 0;
-  }
+  select,
   .radio,
   .checkbox {
-    margin-top: 5px;
+    .navigationbarVerticalAlign(30px); // Vertically center in navigationbar
+  }
+  input,
+  select {
+    display: inline-block;
+    margin-bottom: 0;
   }
   input[type="image"],
   input[type="checkbox"],
@@ -125,36 +131,33 @@
 .navigationbar-search {
   position: relative;
   float: left;
-  margin-top: 6px;
+  .navigationbarVerticalAlign(28px); // Vertically center in navigationbar
   margin-bottom: 0;
   .search-query {
     padding: 4px 9px;
     #font > .sans-serif(13px, normal, 1);
     color: @white;
-    color: rgba(255,255,255,.75);
-    background: #666;
-    background: rgba(255,255,255,.3);
-    border: 1px solid #111;
+    background-color: @navigationbarSearchBackground;
+    border: 1px solid @navigationbarSearchBorder;
     @shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.15);
     .box-shadow(@shadow);
     .transition(none);
 
-    // Placeholder text gets special styles; can't be bundled together though for some reason
-    .placeholder(@grayLighter);
-
-    // Hover states
-    &:hover {
-      color: @white;
-      background-color: @grayLight;
-      background-color: rgba(255,255,255,.5);
+    // Placeholder text gets special styles; can't be a grouped selector
+    &:-moz-placeholder {
+      color: @navigationbarSearchPlaceholderColor;
     }
+    &::-webkit-input-placeholder {
+      color: @navigationbarSearchPlaceholderColor;
+    }
+
     // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
     &:focus,
     &.focused {
       padding: 5px 10px;
       color: @grayDark;
       text-shadow: 0 1px 0 @white;
-      background-color: @white;
+      background-color: @navigationbarSearchBackgroundFocus;
       border: 0;
       .box-shadow(0 0 3px rgba(0,0,0,.15));
       outline: 0;
@@ -163,18 +166,36 @@
 }
 
 
-.navigationbar-fixed-top {
+.navigationbar-fixed-top,
+.navigationbar-fixed-bottom {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: @zindexFixedNavigationbar;
+  margin-bottom: 0; // remove 18px margin for static navigationbar
 }
 
-.navigationbar-fixed-top .navigationbar-inner {
-  padding-left:  0;
+.navigationbar-fixed-top .navigationbar-inner,
+.navigationbar-fixed-bottom .navigationbar-inner {
+  padding-left: 0;
   padding-right: 0;
   .border-radius(0);
+}
+
+.navigationbar-fixed-top .container,
+.navigationbar-fixed-bottom .container {
+  #grid > .core > .column(@gridColumns);
+}
+
+// Fixed to top
+.navigationbar-fixed-top {
+  top: 0;
+}
+
+// Fixed to bottom
+.navigationbar-fixed-bottom {
+  bottom: 0;
 }
 
 
@@ -214,9 +235,9 @@
 // Active navigation items
 .navigationbar .navigation .active > a,
 .navigationbar .navigation .active > a:hover {
-  color: @navigationbarLinkColorHover;
+  color: @navigationbarLinkColorActive;
   text-decoration: none;
-  background-color: @navigationbarBackground;
+  background-color: @navigationbarLinkBackgroundActive;
 }
 
 // Dividers (basically a vertical hr)
@@ -234,70 +255,4 @@
   margin-left: 10px;
   margin-right: 0;
 }
-
-
-/*
-// Menu position and menu carets
-.navigationbar .dropdown-menu {
-  margin-top: 1px;
-  .border-radius(4px);
-  &:before {
-    content: '';
-    display: inline-block;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #ccc;
-    border-bottom-color: rgba(0,0,0,.2);
-    position: absolute;
-    top: -7px;
-    left: 9px;
-  }
-  &:after {
-    content: '';
-    display: inline-block;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid @white;
-    position: absolute;
-    top: -6px;
-    left: 10px;
-  }
-}
-
-// Dropdown toggle caret
-.navigationbar .navigation .dropdown-toggle .caret,
-.navigationbar .navigation .open.dropdown .caret {
-  border-top-color: @white;
-}
-
-.navigationbar .navigation .active .caret {
-  .opacity(100);
-}
-
-// Remove background color from open dropdown
-.navigationbar .navigation .open > .dropdown-toggle,
-.navigationbar .navigation .active > .dropdown-toggle,
-.navigationbar .navigation .open.active > .dropdown-toggle {
-  background-color: transparent;
-}
-
-// Dropdown link on hover
-.navigationbar .navigation .active > .dropdown-toggle:hover {
-  color: @white;
-}
-
-// Right aligned menus need alt position
-.navigationbar .navigation.pull-right .dropdown-menu {
-  left: auto;
-  right: 0;
-  &:before {
-    left: auto;
-    right: 12px;
-  }
-  &:after {
-    left: auto;
-    right: 13px;
-  }
-}
-*/
 
