@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Web UI Toolkit Plugin Test Suite</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../modal.js"></script>
+    <link rel="stylesheet" href="../../dist/stylesheets/web-ui-toolkit.min.css">
+    <link rel="stylesheet" href="../../dist/stylesheets/web-ui-toolkit-responsive.css">
+  <body>
+    <div class="container">
+      <a class="button button-primary" data-toggle="modal" href="#myModal" >Launch Modal</a>
+      <div class="modal hide fade" style="display: none;" id="myModal">
+        <div class="modal-header">
+          <a href="#" class="close" data-dismiss="modal">&times;</a>
+          <h3>Modal header</h3>
+        </div>
+        <div class="modal-body">
+          <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="button">Close</a>
+          <a href="#" class="button button-primary">Save changes</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
